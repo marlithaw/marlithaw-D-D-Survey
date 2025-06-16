@@ -3,201 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Fusion BBQ: Interest Survey</title>
+    <title>D&D Fusion BBQ: Family Vision Presentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
         }
-        .form-checkbox:checked, .form-radio:checked {
-            background-color: #c026d3; /* Fuchsia-600 */
-            border-color: #c026d3;
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
         }
-        .form-checkbox:checked:hover, .form-radio:checked:hover {
-            background-color: #a21caf; /* Fuchsia-700 */
-            border-color: #a21caf;
+        .slide-content {
+            animation: fadeIn 0.6s ease-in-out;
         }
-        #submissionStatus {
-            display: none; /* Hidden by default */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
-    <div class="w-full max-w-3xl bg-white rounded-xl shadow-lg overflow-hidden">
-        <!-- Header Section -->
-        <div class="bg-gray-800 p-6 text-white text-center">
-            <h1 class="text-3xl font-bold">D&D Fusion BBQ</h1>
-            <p class="mt-2 text-lg text-gray-300">Family & Friends Interest Survey</p>
-        </div>
+<body class="bg-gray-800 flex flex-col items-center justify-center min-h-screen p-2 md:p-4">
 
-        <!-- Form Section -->
-        <!-- 
-            IMPORTANT: Replace the placeholder URL below with your actual Formspree endpoint URL.
-            You get this URL after creating a new form at formspree.io.
-        -->
-        <form id="interestForm" action="https://formspree.io/f/mldnnynb" method="POST" class="p-8 space-y-8">
-            
-            <div id="submissionStatus"></div>
+    <div class="w-full max-w-6xl h-[90vh] md:aspect-video md:h-auto bg-gray-900 text-gray-200 rounded-lg shadow-2xl flex flex-col">
+        <!-- Main Content Area for Slides -->
+        <main id="presentation-root" class="flex-grow flex items-center justify-center p-4 sm:p-6 md:p-12 overflow-y-auto">
+            <!-- Slide content will be dynamically injected here -->
+        </main>
 
-            <!-- Section 1: Contact Information -->
-            <fieldset>
-                <legend class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Section 1: Contact Information</legend>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                        <input type="text" id="name" name="Name" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-fuchsia-500 focus:border-fuchsia-500 transition duration-150">
-                    </div>
-                    <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <input type="tel" id="phone" name="Phone" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-fuchsia-500 focus:border-fuchsia-500 transition duration-150">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" id="email" name="Email" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-fuchsia-500 focus:border-fuchsia-500 transition duration-150">
-                    </div>
-                </div>
-            </fieldset>
-
-            <!-- Section 2: Interest Areas -->
-            <fieldset>
-                <legend class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Section 2: Interest Areas</legend>
-                <p class="text-sm text-gray-600 mb-6">Select all that apply. Your skills and interests could be a huge help!</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                    <!-- Categories have 'value' attributes now for clear data submission -->
-                    <div class="space-y-3">
-                        <h3 class="text-lg font-semibold text-gray-700">1️⃣ Advisory & Professional Services</h3>
-                        <div class="flex items-start"><input id="legal" name="Interest" value="Legal" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="legal" class="ml-3 text-sm text-gray-600">Legal setup, contracts, compliance</label></div>
-                        <div class="flex items-start"><input id="accounting" name="Interest" value="Accounting" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="accounting" class="ml-3 text-sm text-gray-600">Accounting, bookkeeping, tax strategy</label></div>
-                        <div class="flex items-start"><input id="vendor_contracts" name="Interest" value="Vendor_Contracts" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="vendor_contracts" class="ml-3 text-sm text-gray-600">Vendor contracts & negotiations</label></div>
-                        <div class="flex items-start"><input id="licensing" name="Interest" value="Licensing" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="licensing" class="ml-3 text-sm text-gray-600">Licensing & regulatory consulting</label></div>
-                    </div>
-                    <div class="space-y-3">
-                        <h3 class="text-lg font-semibold text-gray-700">2️⃣ Capital Investment</h3>
-                        <div class="flex items-start"><input id="funding" name="Interest" value="Startup_Funding" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="funding" class="ml-3 text-sm text-gray-600">Startup funding (equipment, permits, inventory)</label></div>
-                        <div class="flex items-start"><input id="infrastructure" name="Interest" value="Infrastructure_Support" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="infrastructure" class="ml-3 text-sm text-gray-600">Supports infrastructure buildout</label></div>
-                    </div>
-                    <div class="space-y-3">
-                        <h3 class="text-lg font-semibold text-gray-700">3️⃣ Marketing & Brand Growth</h3>
-                        <div class="flex items-start"><input id="social_media" name="Interest" value="Social_Media" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="social_media" class="ml-3 text-sm text-gray-600">Social media content & management</label></div>
-                        <div class="flex items-start"><input id="visuals" name="Interest" value="Visuals" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="visuals" class="ml-3 text-sm text-gray-600">Photography, videography, and visuals</label></div>
-                        <div class="flex items-start"><input id="branding" name="Interest" value="Branding" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="branding" class="ml-3 text-sm text-gray-600">Logo, packaging, signage, website</label></div>
-                        <div class="flex items-start"><input id="outreach" name="Interest" value="Community_Outreach" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="outreach" class="ml-3 text-sm text-gray-600">Community outreach & promotions</label></div>
-                    </div>
-                    <div class="space-y-3">
-                        <h3 class="text-lg font-semibold text-gray-700">4️⃣ Vendor & Supplier Partnerships</h3>
-                        <div class="flex items-start"><input id="food_sourcing" name="Interest" value="Food_Sourcing" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="food_sourcing" class="ml-3 text-sm text-gray-600">Food sourcing & vendor connections</label></div>
-                        <div class="flex items-start"><input id="equipment_sourcing" name="Interest" value="Equipment_Sourcing" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="equipment_sourcing" class="ml-3 text-sm text-gray-600">Equipment sourcing</label></div>
-                        <div class="flex items-start"><input id="kitchens_venues" name="Interest" value="Kitchens_Venues" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="kitchens_venues" class="ml-3 text-sm text-gray-600">Commissary kitchens & event venues</label></div>
-                        <div class="flex items-start"><input id="catering_access" name="Interest" value="Catering_Access" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="catering_access" class="ml-3 text-sm text-gray-600">Catering site access</label></div>
-                    </div>
-                    <div class="space-y-3">
-                        <h3 class="text-lg font-semibold text-gray-700">5️⃣ Sweat Equity (Operations & Event Support)</h3>
-                        <div class="flex items-start"><input id="staffing" name="Interest" value="Staffing" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="staffing" class="ml-3 text-sm text-gray-600">Pop-up staffing (setup, service, breakdown)</label></div>
-                        <div class="flex items-start"><input id="food_prep" name="Interest" value="Food_Prep" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="food_prep" class="ml-3 text-sm text-gray-600">Food prep & kitchen support</label></div>
-                        <div class="flex items-start"><input id="customer_service" name="Interest" value="Customer_Service" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="customer_service" class="ml-3 text-sm text-gray-600">Customer service</label></div>
-                        <div class="flex items-start"><input id="logistics" name="Interest" value="Logistics" type="checkbox" class="h-4 w-4 text-fuchsia-600 border-gray-300 rounded focus:ring-fuchsia-500 form-checkbox mt-1"><label for="logistics" class="ml-3 text-sm text-gray-600">Logistics & equipment transport</label></div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <!-- Section 3: Readiness Level -->
-            <fieldset>
-                <legend class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Section 3: Readiness Level</legend>
-                <div class="space-y-3">
-                    <div class="flex items-center"><input id="curious" name="Readiness" value="Curious" type="radio" class="form-radio h-4 w-4 text-fuchsia-600 border-gray-300 focus:ring-fuchsia-500"><label for="curious" class="ml-3 block text-sm font-medium text-gray-700">I’m simply curious — would like to learn more</label></div>
-                    <div class="flex items-center"><input id="interested" name="Readiness" value="Interested" type="radio" class="form-radio h-4 w-4 text-fuchsia-600 border-gray-300 focus:ring-fuchsia-500"><label for="interested" class="ml-3 block text-sm font-medium text-gray-700">I’m interested and open to exploring how I can help</label></div>
-                    <div class="flex items-center"><input id="considering" name="Readiness" value="Considering" type="radio" class="form-radio h-4 w-4 text-fuchsia-600 border-gray-300 focus:ring-fuchsia-500"><label for="considering" class="ml-3 block text-sm font-medium text-gray-700">I’m seriously considering participation</label></div>
-                </div>
-            </fieldset>
-
-            <!-- Section 4: Preferred Timing -->
-             <fieldset>
-                <legend class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Section 4: Preferred Timing for Follow-Up</legend>
-                 <div class="space-y-3">
-                    <div class="flex items-center"><input id="follow_up_soon" name="Timing" value="Soon" type="radio" class="form-radio h-4 w-4 text-fuchsia-600 border-gray-300 focus:ring-fuchsia-500"><label for="follow_up_soon" class="ml-3 block text-sm font-medium text-gray-700">I’d like to have a follow-up conversation soon</label></div>
-                    <div class="flex items-center"><input id="follow_up_later" name="Timing" value="Later" type="radio" class="form-radio h-4 w-4 text-fuchsia-600 border-gray-300 focus:ring-fuchsia-500"><label for="follow_up_later" class="ml-3 block text-sm font-medium text-gray-700">I may be ready later in the year</label></div>
-                    <div class="flex items-center"><input id="follow_up_undecided" name="Timing" value="Undecided" type="radio" class="form-radio h-4 w-4 text-fuchsia-600 border-gray-300 focus:ring-fuchsia-500"><label for="follow_up_undecided" class="ml-3 block text-sm font-medium text-gray-700">I’m undecided but want to stay updated</label></div>
-                </div>
-            </fieldset>
-
-            <!-- Section 5: Open Comment -->
-            <fieldset>
-                 <legend class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Section 5: Open Comment (Optional)</legend>
-                <div>
-                    <label for="comments" class="block text-sm font-medium text-gray-700">Anything else you’d like to share?</label>
-                    <div class="mt-1">
-                        <textarea id="comments" name="Comments" rows="4" class="w-full shadow-sm block w-full focus:ring-fuchsia-500 focus:border-fuchsia-500 sm:text-sm border border-gray-300 rounded-md p-2"></textarea>
-                    </div>
-                </div>
-            </fieldset>
-
-            <!-- Submission Button -->
-            <div class="pt-5">
-                <div class="flex justify-end">
-                    <button id="submitButton" type="submit" class="w-full md:w-auto bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500 transition-all duration-200 ease-in-out">
-                        Submit My Interest
-                    </button>
-                </div>
+        <!-- Navigation Footer -->
+        <footer class="bg-black bg-opacity-20 mt-auto p-4 flex items-center justify-between border-t border-gray-700">
+            <div class="text-sm font-bold text-amber-500 w-1/3">D&D Fusion BBQ</div>
+            <div class="flex items-center gap-4">
+                <button id="prevBtn" class="bg-gray-700 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                    Prev
+                </button>
+                <div id="slideCounter" class="text-white font-semibold text-sm w-16 text-center"></div>
+                <button id="nextBtn" class="bg-gray-700 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                    Next
+                </button>
             </div>
-        </form>
+            <div id="slide-title-footer" class="text-sm text-gray-400 w-1/3 text-right truncate hidden md:block"></div>
+        </footer>
     </div>
 
     <script>
-        // --- JavaScript for better form handling with Formspree ---
-        var form = document.getElementById("interestForm");
-        var status = document.getElementById("submissionStatus");
-        var submitButton = document.getElementById("submitButton");
+        const slidesData = [
+            // SLIDE 1: WELCOME & PURPOSE
+            {
+                title: "Welcome & Purpose",
+                content: `
+                    <div class="text-center slide-content">
+                        <h1 class="text-5xl md:text-7xl font-black text-amber-500 tracking-tight">D&D Fusion BBQ</h1>
+                        <h2 class="text-3xl md:text-4xl mt-2 text-white font-bold">Building Our Family Vision</h2>
+                        <div class="mt-10 md:mt-12 text-lg md:text-xl text-gray-300 space-y-4 max-w-3xl mx-auto">
+                            <p>Built on <span class="text-amber-400 font-bold">DECADES</span> of conversations & cooking.</p>
+                            <p>Combining family strengths: <span class="text-amber-400 font-bold">BBQ, baking, & cultural food</span>.</p>
+                            <p>Moving from talking to <span class="font-bold text-amber-400">building</span>.</p>
+                            <p>Creating a legacy for our <span class="text-amber-400 font-bold">children & grandchildren</span>.</p>
+                        </div>
+                        <div class="mt-10 md:mt-12 border-t-2 border-amber-500 pt-6 max-w-4xl mx-auto">
+                            <h3 class="text-xl font-bold text-white tracking-wider">Founding Team</h3>
+                            <p class="mt-2 text-lg text-gray-400">Marlitha, Kinya, Dell, Lorraine, Renay</p>
+                        </div>
+                    </div>
+                `
+            },
+            // SLIDE 2: AGENDA (NEW)
+            {
+                title: "Agenda",
+                content: `
+                    <div class="w-full slide-content">
+                        <h1 class="text-4xl md:text-5xl font-black text-center text-amber-500 mb-8 md:mb-12">Tonight's Agenda</h1>
+                        <div class="max-w-2xl mx-auto text-left space-y-5 text-lg md:text-2xl">
+                            <p class="flex items-center gap-4"><span class="text-amber-500 font-bold w-8 text-right">1.</span> Our Vision & Purpose</p>
+                            <p class="flex items-center gap-4"><span class="text-amber-500 font-bold w-8 text-right">2.</span> The Market Opportunity</p>
+                            <p class="flex items-center gap-4"><span class="text-amber-500 font-bold w-8 text-right">3.</span> How You Can Participate</p>
+                            <p class="flex items-center gap-4"><span class="text-amber-500 font-bold w-8 text-right">4.</span> Our Launch Roadmap</p>
+                            <p class="flex items-center gap-4"><span class="text-amber-500 font-bold w-8 text-right">5.</span> A Look at the Numbers</p>
+                            <p class="flex items-center gap-4"><span class="text-amber-500 font-bold w-8 text-right">6.</span> Next Steps & Open Discussion</p>
+                        </div>
+                    </div>
+                `
+            },
+            // SLIDE 3: WHY BBQ FUSION? WHY US? WHY NOW?
+            {
+                title: "The Opportunity",
+                content: `
+                    <div class="w-full slide-content">
+                        <h1 class="text-4xl md:text-5xl font-black text-center text-amber-500 mb-8 md:mb-12">Why BBQ Fusion? Why Us? Why Now?</h1>
+                        <div class="grid md:grid-cols-3 gap-6 md:gap-8 text-left">
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                                <h2 class="text-2xl font-bold text-amber-400 mb-4">Why BBQ Fusion?</h2>
+                                <ul class="list-disc list-inside space-y-3 text-gray-300">
+                                    <li>Fills a major gap in the South Bend market.</li>
+                                    <li>23% growth in gourmet mobile food (2024).</li>
+                                    <li>Creates buzz, variety, & customer loyalty.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                                <h2 class="text-2xl font-bold text-amber-400 mb-4">Why Us?</h2>
+                                <ul class="list-disc list-inside space-y-3 text-gray-300">
+                                    <li>50+ years of pitmaster experience (Dell).</li>
+                                    <li>Generations of family baking & cooking expertise.</li>
+                                    <li>Defined leadership & tested recipes.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                                <h2 class="text-2xl font-bold text-amber-400 mb-4">Why Now?</h2>
+                                <ul class="list-disc list-inside space-y-3 text-gray-300">
+                                    <li>200K+ ND tailgaters with no fusion competitor.</li>
+                                    <li>Pop-up & vendor licenses are wide open.</li>
+                                    <li>We are mobile & fusion vs. stationary competitors.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // SLIDE 4: PARTICIPATION PATHWAYS
+            {
+                title: "Participation Pathways",
+                content: `
+                    <div class="w-full slide-content">
+                        <h1 class="text-4xl md:text-5xl font-black text-center text-amber-500 mb-8 md:mb-12">How Family Can Participate</h1>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 text-left max-w-6xl mx-auto">
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full"><h3 class="font-bold text-xl text-amber-400">1️⃣ Advisory & Professional</h3><p class="text-base text-gray-300 mt-2">Legal, Accounting, Contracts, Licensing</p></div>
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full"><h3 class="font-bold text-xl text-amber-400">2️⃣ Capital Investment</h3><p class="text-base text-gray-300 mt-2">Startup funding for equipment, inventory, and marketing.</p></div>
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full"><h3 class="font-bold text-xl text-amber-400">3️⃣ Marketing & Brand</h3><p class="text-base text-gray-300 mt-2">Social media, photography, visuals, and outreach.</p></div>
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full"><h3 class="font-bold text-xl text-amber-400">4️⃣ Vendor Partnerships</h3><p class="text-base text-gray-300 mt-2">Sourcing food, equipment, and event venues.</p></div>
+                            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 h-full sm:col-span-2 lg:col-span-1"><h3 class="font-bold text-xl text-amber-400">5️⃣ Sweat Equity</h3><p class="text-base text-gray-300 mt-2">Event staffing, food prep, customer service, and logistics.</p></div>
+                        </div>
+                    </div>
+                `
+            },
+            // SLIDE 5: LAUNCH ROADMAP
+            {
+                title: "Launch Roadmap",
+                content: `
+                    <div class="w-full slide-content">
+                        <h1 class="text-4xl md:text-5xl font-black text-center text-amber-500 mb-8 md:mb-12">Launch Roadmap</h1>
+                        <div class="w-full max-w-4xl mx-auto space-y-8">
+                            <!-- Phase 1 -->
+                            <div class="flex items-start md:items-center gap-4"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-white font-black text-2xl">1</div><div><h3 class="font-bold text-xl text-amber-400">Legal & Compliance (NOW)</h3><p class="text-gray-300">LLC filing, permits, licensing (Target: June 2025)</p></div></div>
+                            <!-- Phase 2 -->
+                            <div class="flex items-start md:items-center gap-4"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-white font-black text-2xl">2</div><div><h3 class="font-bold text-xl text-amber-400">Soft Launch & Brand Build (Summer 2025)</h3><p class="text-gray-300">Finalize menu, prep equipment, run early test pop-ups.</p></div></div>
+                            <!-- Phase 3 -->
+                            <div class="flex items-start md:items-center gap-4"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-white font-black text-2xl">3</div><div><h3 class="font-bold text-xl text-amber-400">Full Operations (Fall 2025)</h3><p class="text-gray-300">Kickoff for Notre Dame season, farmers markets, and catering.</p></div></div>
+                            <!-- Phase 4 -->
+                            <div class="flex items-start md:items-center gap-4"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-white font-black text-2xl">4</div><div><h3 class="font-bold text-xl text-amber-400">Expansion & Growth (2026+)</h3><p class="text-gray-300">Explore mobile unit, expand catering footprint, evaluate product lines.</p></div></div>
+                        </div>
+                    </div>
+                `
+            },
+            // SLIDE 6: REVENUE, LABOR & GROWTH SNAPSHOT
+            {
+                title: "Financial Snapshot",
+                content: `
+                    <div class="w-full mx-auto slide-content">
+                        <h1 class="text-4xl md:text-5xl font-black text-center text-amber-500 mb-8">Financial Snapshot</h1>
+                        <div class="grid lg:grid-cols-2 gap-6 text-sm">
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                                <h3 class="font-bold text-amber-400 mb-2 text-lg">Revenue Model (Conservative)</h3>
+                                <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead class="text-gray-400"><tr><th class="p-2">Channel</th><th class="p-2">Ramp-Up</th><th class="p-2">Full Year</th></tr></thead>
+                                    <tbody class="text-gray-200">
+                                        <tr><td class="border-t border-gray-700 p-2">Farmers Markets</td><td class="border-t border-gray-700 p-2">~$4K</td><td class="border-t border-gray-700 p-2">~$16K</td></tr>
+                                        <tr><td class="border-t border-gray-700 p-2">ND Pop-Ups</td><td class="border-t border-gray-700 p-2">~$1K</td><td class="border-t border-gray-700 p-2">~$3K</td></tr>
+                                        <tr><td class="border-t border-gray-700 p-2">Tailgate Catering</td><td class="border-t border-gray-700 p-2">~$6K</td><td class="border-t border-gray-700 p-2">~$19.5K</td></tr>
+                                        <tr><td class="border-t border-gray-700 p-2">Cottage Goods</td><td class="border-t border-gray-700 p-2">~$2K</td><td class="border-t border-gray-700 p-2">~$7.2K</td></tr>
+                                        <tr class="font-bold bg-amber-500/10 text-white"><td class="border-t-2 border-amber-500 p-2">Total</td><td class="border-t-2 border-amber-500 p-2">~$13K</td><td class="border-t-2 border-amber-500 p-2">~$45K</td></tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                                <h3 class="font-bold text-amber-400 mb-2 text-lg">Startup & Scaling Costs</h3>
+                                <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead class="text-gray-400"><tr><th class="p-2">Phase</th><th class="p-2">Cost</th></tr></thead>
+                                    <tbody class="text-gray-200">
+                                        <tr><td class="border-t border-gray-700 p-2">Cottage Startup</td><td class="border-t border-gray-700 p-2">~$8,250</td></tr>
+                                        <tr><td class="border-t border-gray-700 p-2">Full Mobile Expansion</td><td class="border-t border-gray-700 p-2">~$15,250</td></tr>
+                                        <tr class="font-bold bg-amber-500/10 text-white"><td class="border-t-2 border-amber-500 p-2">Total Initial Investment</td><td class="border-t-2 border-amber-500 p-2">~$23,500</td></tr>
+                                        <tr><td class="border-t border-gray-700 p-2">Ongoing Monthly Ops</td><td class="border-t border-gray-700 p-2">~$5,300</td></tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-2 bg-gray-800 p-4 rounded-lg border border-gray-700">
+                                <h3 class="font-bold text-amber-400 mb-2 text-lg">Strategic Advantages</h3>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li><span class="font-bold text-white">Price Positioning:</span> $13–16 plates hit the sweet spot between budget and premium.</li>
+                                    <li><span class="font-bold text-white">Fusion Brand Moat:</span> Unique and uncopyable concept in the South Bend market.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // SLIDE 7: TRANSPARENCY & NEXT STEPS
+            {
+                title: "Next Steps",
+                content: `
+                    <div class="text-center slide-content">
+                        <h1 class="text-4xl md:text-5xl font-black text-amber-500">Transparency & Next Steps</h1>
+                        <div class="mt-8 max-w-2xl mx-auto text-left space-y-4 text-lg md:text-xl">
+                            <p class="flex items-center"><span class="text-green-500 mr-4 text-2xl font-bold">✅</span> Phased launch plan is fully developed.</p>
+                            <p class="flex items-center"><span class="text-green-500 mr-4 text-2xl font-bold">✅</span> Financials are conservative for stable growth.</p>
+                            <p class="flex items-center"><span class="text-green-500 mr-4 text-2xl font-bold">✅</span> Participation is welcome, but fully optional.</p>
+                            <p class="flex items-center"><span class="text-green-500 mr-4 text-2xl font-bold">✅</span> We'll schedule follow-ups based on interests.</p>
+                        </div>
+                        <div class="mt-10">
+                            <a href="https://marlithaw.github.io/marlithaw-D-D-Survey/" target="_blank" class="inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-4 px-10 rounded-lg shadow-lg text-xl transition-transform transform hover:scale-105">
+                                Take the Interest Survey
+                            </a>
+                        </div>
+                        <p class="mt-8 text-gray-400 text-base max-w-3xl mx-auto">Click the button above to share your interest—with no pressure either way.</p>
+                    </div>
+                `
+            }
+        ];
 
-        async function handleSubmit(event) {
-            event.preventDefault();
-            var data = new FormData(event.target);
-            
-            // Disable the button to prevent multiple submissions
-            submitButton.disabled = true;
-            submitButton.innerText = 'Submitting...';
+        let currentSlide = 0;
+        const presentationRoot = document.getElementById('presentation-root');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slideCounter');
+        const slideTitleFooter = document.getElementById('slide-title-footer');
 
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    status.innerHTML = "Thanks for your submission! We'll be in touch soon.";
-                    status.style.display = 'block';
-                    status.style.backgroundColor = '#d1fae5'; // Green-100
-                    status.style.color = '#065f46'; // Green-800
-                    form.reset();
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                        } else {
-                            status.innerHTML = "Oops! There was a problem submitting your form"
-                        }
-                        status.style.display = 'block';
-                        status.style.backgroundColor = '#fee2e2'; // Red-100
-                        status.style.color = '#991b1b'; // Red-800
-                    })
-                }
-            }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form";
-                status.style.display = 'block';
-                status.style.backgroundColor = '#fee2e2'; // Red-100
-                status.style.color = '#991b1b'; // Red-800
-            }).finally(() => {
-                // Re-enable the button
-                submitButton.disabled = false;
-                submitButton.innerText = 'Submit My Interest';
-            });
+        function showSlide(index) {
+            presentationRoot.innerHTML = slidesData[index].content;
+            slideCounter.textContent = `${index + 1} / ${slidesData.length}`;
+            slideTitleFooter.textContent = slidesData[index].title;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slidesData.length - 1;
         }
-        form.addEventListener("submit", handleSubmit)
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slidesData.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            }
+        });
+
+        // Initial load
+        showSlide(currentSlide);
     </script>
 </body>
 </html>
