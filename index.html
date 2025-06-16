@@ -217,9 +217,9 @@
                             <p class="flex items-center"><span class="text-green-500 mr-4 text-2xl font-bold">✅</span> We'll schedule follow-ups based on interests.</p>
                         </div>
                         <div class="mt-10">
-                            <button id="surveyLinkBtn" class="inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-4 px-10 rounded-lg shadow-lg text-xl transition-transform transform hover:scale-105">
+                            <a href="https://marlithaw.github.io/marlithaw-D-D-Survey/d-d-interest-form.html" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-4 px-10 rounded-lg shadow-lg text-xl transition-transform transform hover:scale-105">
                                 Take the Interest Survey
-                            </button>
+                            </a>
                         </div>
                         <p class="mt-8 text-gray-400 text-base max-w-3xl mx-auto">Click the button above to share your interest—with no pressure either way.</p>
                     </div>
@@ -240,18 +240,6 @@
             slideTitleFooter.textContent = slidesData[index].title;
             prevBtn.disabled = index === 0;
             nextBtn.disabled = index === slidesData.length - 1;
-
-            // **FIX APPLIED HERE**
-            // If it's the last slide, find the new button and add a specific click listener
-            if (index === slidesData.length - 1) {
-                const surveyButton = document.getElementById('surveyLinkBtn');
-                if (surveyButton) {
-                    surveyButton.addEventListener('click', () => {
-                        // This robustly opens the link in a new tab
-                        window.open('https://marlithaw.github.io/marlithaw-D-D-Survey/', '_blank');
-                    });
-                }
-            }
         }
 
         prevBtn.addEventListener('click', () => {
